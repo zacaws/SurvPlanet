@@ -43,47 +43,58 @@ class TelaPython:
 			print(f'prxy:	{proxy}')
 			print(f'velo:   {velocidade_script}')
 
+class CodigoScript:
+	def votoPlay(self):
+		webaddr = {url}
+		tagid = {tagfor}
+		qtd = {nvotos}
+
+		PATH = "C:/Users/diego/Desktop/Programação/Account Creator/chromedriver.exe"
+		driver = webdriver.Chrome(PATH)
+		ndevotos = {nvotos}
+		fator = 1
+		natual = 1
+
+		while True:
+			driver.get(f'{url}')
+			time.sleep(1)
+			#clica no begin
+			element = driver.find_element_by_xpath("//*[@id='begin-button']").click()
+			time.sleep(1)
+
+			voto = driver.find_element_by_xpath("//*[@for='60a6e99ae73e7cfce83b7268[0]']").click()
+
+			element = driver.find_element_by_class_name('submit-button')
+			element.click()
+
+			time.sleep(1)
+			driver.get("https://google.com.br")
+			update(str(natual))
+
+			natual += 1
+
+			if natual == ndevotos:
+				driver.quit()
+				break
+
+
+
 			
 
 
 tela = TelaPython()
 tela.Iniciar()
 
-#abrir pesquisa
-
-PATH = "C:/Users/diego/Desktop/Programação/Account Creator/chromedriver.exe"
-driver = webdriver.Chrome(PATH)
-ndevotos = {nvotos}
-fator = 1
-natual = 1
-
-while True:
-
-	driver.get("https://s.surveyplanet.com/irdv1LwwV")
-	time.sleep(1)
-	#clica no begin
-	element = driver.find_element_by_xpath("//*[@id='begin-button']").click()
-	time.sleep(1)
-	#<label class="radio" for="60a6e99ae73e7cfce83b7268[NUMERO DA OPÇÃO CORRESPONDENTE À OPÇÃO]">
-	voto = driver.find_element_by_xpath("//*[@for='60a6e99ae73e7cfce83b7268[0]']").click()
-
-	element = driver.find_element_by_class_name('submit-button')
-	element.click()
-
-	time.sleep(1)
-	driver.get("https://google.com.br")
-	update(str(natual))
-
-	natual += 1
-
-	if natual == ndevotos:
-		break
 
 
-	
+codigo = CodigoScript()
+codigo.votoPlay()
+
+		
 
 
-	driver.quit()
+
+
 
 
 		
